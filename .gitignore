@@ -1,0 +1,6 @@
+#files to avoid in commit 
+
+*.sqlite3
+*.pyc
+__pycache__/
+migrations/

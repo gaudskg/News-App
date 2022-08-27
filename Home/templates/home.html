@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>News App</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">NEWS APP IN DJANGO</h1>
+    <hr>
+    <div class="container">
+        <div class="row container">
+            {% for article in articles %}
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ article.urlToImage }}" class="card-img-top" alt=".." onerror="this.src='https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2022/08/breaking-news-template-5-1660438269-1660526098.jpg'">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.title|truncatechars:30 }}</h5>
+                        <p class="card-text">{{ article.description|truncatechars:40 }}</p>
+                        <a href="{{article.url}}" class="btn btn-primary" target="_blank">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</html>
